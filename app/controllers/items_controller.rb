@@ -14,10 +14,16 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @item = Item.find_by_redirect_url(params[:id])
-    respond_to do |format|
-      format.html {redirect_to URI.encode(@item.original_url) }
-      format.json { render json: @items }
+    if @item.nil?
+      respond_to do |format|
+        format.html {redirect_to "https://support.freee.co.jp/" }
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to URI.encode(@item.original_url) }
+      end
     end
+
     
   end
 
