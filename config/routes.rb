@@ -3,7 +3,7 @@ LoginOnly::Application.routes.draw do
 
   resources :users
   resources :items
-  match "/:id" => "items#show"
+  get "/:id" => "items#show"
   get "welcome/index"
 
   # The priority is based upon order of creation:
