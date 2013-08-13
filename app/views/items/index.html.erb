@@ -14,7 +14,6 @@
     <td><%= item.original_url %></td>
     <td><%= item.redirect_url %></td>
     <td><%= link_to 'Show', item_path(item.redirect_url) %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

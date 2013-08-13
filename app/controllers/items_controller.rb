@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_filter :authenticate_user, except: :show
   def index
     @items = Item.all
 
@@ -61,7 +62,7 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
@@ -71,4 +72,12 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def authenticate_user
+      unless current_user
+        redirect_to "https://support.freee.co.jp/"
+      end
+    end
+
 end
