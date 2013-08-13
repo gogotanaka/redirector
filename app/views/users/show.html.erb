@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @user.email %>
+</p>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
+<br>
+<%= link_to 'url一覧ページ', items_path %>
